@@ -5,6 +5,7 @@ CREATE OR REPLACE PACKAGE BODY SINIESTROS.PKG_REMANENTE IS
   aPoliza t_poliza;
 
   TYPE t_situacion IS TABLE OF mpolisit%ROWTYPE INDEX BY PLS_INTEGER;
+  --prueba
 
   aSituacion t_Situacion;
 
@@ -350,7 +351,7 @@ CREATE OR REPLACE PACKAGE BODY SINIESTROS.PKG_REMANENTE IS
           v_Dummy := aCobertura(1).vCdGarant;
         EXCEPTION
           WHEN no_data_found THEN
-            v_Dummy := 'No se encontró información de la cobertura para la fecha del siniestro';
+            v_Dummy := 'No se encontrÃ³ informaciÃ³n de la cobertura para la fecha del siniestro';
             pkg_traduc.p_inserta_bitacora(pi_msg_id   => 10000
                                          ,pi_code_err => SQLCODE
                                          ,pi_msg_text => v_Dummy
@@ -366,7 +367,7 @@ CREATE OR REPLACE PACKAGE BODY SINIESTROS.PKG_REMANENTE IS
           v_Dummy := aCoberturaAux(1).vCdGarant;
         EXCEPTION
           WHEN no_data_found THEN
-            v_Dummy := 'No se encontró información de la cobertura auxiliar para la fecha del siniestro';
+            v_Dummy := 'No se encontrÃ³ informaciÃ³n de la cobertura auxiliar para la fecha del siniestro';
             pkg_traduc.p_inserta_bitacora(pi_msg_id   => 10000
                                          ,pi_code_err => SQLCODE
                                          ,pi_msg_text => v_Dummy
@@ -4809,7 +4810,7 @@ CREATE OR REPLACE PACKAGE BODY SINIESTROS.PKG_REMANENTE IS
                                                         ,20));
     pv_Unidad    := pkg_siniestro_func.f_mon_tdetimptra(pn_ntramite_i
                                                        ,20);
-    v_DsConcepto := 'Participación Adicional';
+    v_DsConcepto := 'ParticipaciÃ³n Adicional';
     P_CONCEPTO_SET(pn_ntramite_i  => pn_ntramite_i
                   ,pv_tipo_i      => pv_tipo
                   ,v_DsConcepto_i => v_DsConcepto
